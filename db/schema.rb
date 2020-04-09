@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2020_04_09_203035) do
     t.string "username"
     t.string "name"
     t.string "password"
-    t.string "type"
+    t.string "user_type"
     t.string "email"
     t.bigint "department_id"
     t.datetime "created_at", precision: 6, null: false
