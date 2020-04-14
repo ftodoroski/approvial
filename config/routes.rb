@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :comments
       resources :locations
       resources :departments 
+      
     end
   end
 end
