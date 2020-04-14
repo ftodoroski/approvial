@@ -2,9 +2,9 @@ class Api::V1::ProjectsController < ApplicationController
     
     def index
         @projects = Project.all
-        render json: @projects
+        render json: @projects.to_json(:include => {:department => {only: :name}, :user => {only: :username}})
     end
-
+  
     def show 
         @project = Project.find(params[:id])
         render json: @project
