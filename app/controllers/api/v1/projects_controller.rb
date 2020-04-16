@@ -2,12 +2,12 @@ class Api::V1::ProjectsController < ApplicationController
     
     def index
         @projects = Project.all
-        render json: @projects.to_json(:include => {:department => {:only => [:name, :id]},:user => {only: :username}})
+        render json: @projects.to_json(:include => {:department => {:only => [:name, :id]},:user => {only: :username}, :location => {:only => [:address, :city, :state, :country, :zip_code]}})
     end
   
     def show 
         @project = Project.find(params[:id])
-        render json: @project.to_json(:include => {:department => {:only => [:name, :id]},:user => {only: :username}})
+        render json: @project.to_json(:include => {:department => {:only => [:name, :id]},:user => {only: :username}, :location => {:only => [:address, :city, :state, :country, :zip_code]}})
     end
 
     def create
@@ -22,7 +22,7 @@ class Api::V1::ProjectsController < ApplicationController
     def update 
         @project = Project.find(params[:id])
         if @project.update(project_params)
-            render json: @project.to_json(:include => {:department => {:only => [:name, :id]},:user => {only: :username}})
+            render json: @project.to_json(:include => {:department => {:only => [:name, :id]},:user => {only: :username}, :location => {:only => [:address, :city, :state, :country, :zip_code]}})
         else
             render json: "Something went wrong.".to_json  
         end

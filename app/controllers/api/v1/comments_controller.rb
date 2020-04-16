@@ -2,12 +2,12 @@ class Api::V1::CommentsController < ApplicationController
 
     def index
         @comments = Comment.all
-        render json: @comments
+        render json: @comments.to_json(:include => {:user => {only: :username}})
     end
 
     def show
         @comment = Comment.all
-        render json: @comment
+        render json: @comment.to_json(:include => {:user => {only: :username}})
     end
 
     def create
