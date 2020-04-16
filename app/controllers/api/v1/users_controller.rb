@@ -41,14 +41,3 @@ class Api::V1::UsersController < ApplicationController
         params.require(:user).permit(:username, :department_id, :name)
     end
 end
-
-
-
-
-# fetch('http://localhost:3000/api/v1/users', {
-#     method: 'POST', headers: {
-#       'Content-Type': 'application/json',
-#         'Accept': 'application/json'
-
-#     }, body: JSON.stringify( {username: 'ftodoroski', name: 'Filip'}) 
-# }).then(response => response.json()).then(data => console.log('Success', data)).catch(error => console.log('Failed', error))
